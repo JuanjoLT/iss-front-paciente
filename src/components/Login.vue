@@ -41,13 +41,20 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
 
 const rut = ref('')
 const password = ref('')
 const errorMessage = ref('')
 const router = useRouter()
+
+// Observa el RUT y lo formatea automáticamente
+watch(rut, (nuevoRut, anteriorRut) => {
+  if (nuevoRut.length >= anteriorRut.length) {
+    rut.value = formatRut(nuevoRut)
+  }
+})
 
 const handleLogin = () => {
   if (!validateRut(rut.value)) {
@@ -75,6 +82,25 @@ const irARegistro = () => {
 // Valida formato básico de RUT
 function validateRut(rut: string): boolean {
   return /^[0-9]{1,2}\.[0-9]{3}\.[0-9]{3}-[0-9kK]{1}$/.test(rut)
+}
+
+// Formatea el RUT como 12.345.678-9
+function formatRut(rut: string): string {
+  const limpio = rut.replace(/[^\dkK]/g, '').toUpperCase()
+
+  if (limpio.length <= 1) return limpio
+
+  const cuerpo = limpio.slice(0, -1)
+  const dv = limpio.slice(-1)
+
+  let formateado = ''
+  for (let i = cuerpo.length; i > 0; i -= 3) {
+    const inicio = Math.max(i - 3, 0)
+    const grupo = cuerpo.slice(inicio, i)
+    formateado = grupo + (formateado ? '.' + formateado : '')
+  }
+
+  return `${formateado}-${dv}`
 }
 </script>
 
