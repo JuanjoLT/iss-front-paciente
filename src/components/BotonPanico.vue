@@ -30,7 +30,7 @@ function activarPanico() {
 }
 .boton {
   padding: 1rem 2rem;
-  background-color: red;
+  background-color: rgb(251, 0, 0);
   color: white;
   font-size: 1.2rem;
   border: none;
@@ -38,12 +38,12 @@ function activarPanico() {
   cursor: pointer;
 }
 .boton:disabled {
-  background-color: #999;
+  background-color: #670303;
   cursor: not-allowed;
 }
 .mensaje {
   margin-top: 1rem;
-  color: #b30000;
+  color: #ff0000;
   font-weight: bold;
 }
 </style>

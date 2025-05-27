@@ -1,6 +1,6 @@
 <template>
   <div class="dashboard">
-    <h1>Panel del Paciente</h1>
+    <h1>Monitoreo de Pacientes</h1>
     <BotonPanico />
     <FormularioSintomas />
   </div>

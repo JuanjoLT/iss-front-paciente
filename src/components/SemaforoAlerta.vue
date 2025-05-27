@@ -57,7 +57,7 @@ const mensaje = computed(() => {
   text-align: center;
   padding: 2rem;
   border-radius: 1rem;
-  background-color: #362598;
+  background-color: #ca5c5ca0;
   border: 1px solid #ccc;
 }
 .circulo {
