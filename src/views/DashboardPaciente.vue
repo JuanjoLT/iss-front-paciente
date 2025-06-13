@@ -41,40 +41,105 @@ const mostrarPerfil = ref(false)
 const router = useRouter()
 
 const cerrarSesion = () => {
-  localStorage.removeItem('usuarioActual') // opcional
+  localStorage.removeItem('usuarioActual') // opcional, si usas localStorage para sesión
   router.push('/')
 }
 </script>
 
 <style scoped>
 .dashboard {
-  padding: 2rem;
+  max-width: 1000px;
+  margin: 100px auto; /* Centrado horizontal */
+  padding: 1rem;
+  font-family: 'Segoe UI', sans-serif;
+  color: #054f1a;
+}
+
+h1 {
+  text-align: center;
+  color: #c8d9d9;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
 }
 
 .acciones {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 1rem 0 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .acciones button {
-  padding: 0.5rem 1rem;
-  background-color: #c21807;
+  padding: 0.6rem 1.2rem;
+  background-color: #afbcb3;
   color: white;
   border: none;
-  border-radius: 0.5rem;
+  border-radius: 6px;
   cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
 }
 
 .acciones button:hover {
-  background-color: #a10c0c;
+  background-color: #009999;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 95, 26, 0.2);
+}
+
+.acciones .cerrar {
+  background-color: #afbcb3;
+}
+
+.acciones .cerrar:hover {
+  background-color: #009999;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(176, 0, 32, 0.2);
 }
 
 .perfil {
-  background-color: #d56464;
-  padding: 1rem;
-  border-radius: 1rem;
+  background-color: #e8f5e9;
+  padding: 1.5rem;
+  border-radius: 10px;
+  border-left: 5px solid #065e06;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  animation: fadeIn 0.5s ease-in-out;
   margin-bottom: 2rem;
+}
+
+.perfil h2 {
+  color: #065e06;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.perfil p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.perfil strong {
+  color: #065e06;
+}
+
+/* Animación */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>
+
+<style>
+/* Fondo degradado global */
+html, body {
+  background: linear-gradient(135deg, #31918c 0%, #624a52 100%);
+  font-family: 'Segoe UI', sans-serif;
 }
 </style>

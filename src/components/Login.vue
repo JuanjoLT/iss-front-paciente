@@ -1,41 +1,46 @@
 <template>
-  <div class="login-container">
-    <h2>Bienvenid@</h2>
-    <h2>Inicia Tu Sesión</h2>
-    <p>Por favor, ingresa tu RUT y contraseña para acceder al sistema de monitoreo.</p>
+  <div class="fullscreen-wrapper">
+    <div class="login-container">
+      <img src="@/assets/logo-uoh.png" alt="Logo UOH" class="logo" />
 
-    <form @submit.prevent="handleLogin" class="form">
-      <div class="form-group">
-        <label for="rut">RUT:</label>
-        <input
-          id="rut"
-          v-model="rut"
-          type="text"
-          placeholder="12.345.678-9"
-          required
-        />
+      <h1>Bienvenid@</h1>
+      <h2>Inicia tu sesión</h2>
+      <p>Por favor, ingresa tu RUT y contraseña para acceder al sistema de monitoreo.</p>
+
+      <form @submit.prevent="handleLogin" class="form">
+        <div class="form-group">
+          <label for="rut">RUT</label>
+          <input
+            id="rut"
+            v-model="rut"
+            type="text"
+            placeholder="12.345.678-9"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="password">Contraseña</label>
+          <input
+            id="password"
+            v-model="password"
+            type="password"
+            placeholder="••••••••"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <button type="submit">Ingresar</button>
+        </div>
+
+        <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
+      </form>
+
+      <div class="registro-opcion">
+        <p>¿No tienes cuenta?</p>
+        <button @click="irARegistro" class="btn-registro">Regístrate</button>
       </div>
-      <div class="form-group">
-        <label for="password">Contraseña:</label>
-        <input
-          id="password"
-          v-model="password"
-          type="password"
-          placeholder="••••••••"
-          required
-        />
-      </div>
-
-      <div class="form-group">
-        <button type="submit">Ingresar</button>
-      </div>
-
-      <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
-    </form>
-
-    <div class="registro-opcion">
-      <p>¿No tienes cuenta?</p>
-      <button @click="irARegistro" class="btn-registro">Regístrate</button>
     </div>
   </div>
 </template>
@@ -49,10 +54,9 @@ const password = ref('')
 const errorMessage = ref('')
 const router = useRouter()
 
-// Observa el RUT y lo formatea automáticamente
-watch(rut, (nuevoRut, anteriorRut) => {
-  if (nuevoRut.length >= anteriorRut.length) {
-    rut.value = formatRut(nuevoRut)
+watch(rut, (nuevo, anterior) => {
+  if (nuevo.length >= anterior.length) {
+    rut.value = formatRut(nuevo)
   }
 })
 
@@ -67,7 +71,6 @@ const handleLogin = () => {
     return
   }
 
-  // Simulamos login correcto
   if (rut.value === '12.345.678-9' && password.value === '123456') {
     router.push('/dashboard')
   } else {
@@ -79,20 +82,16 @@ const irARegistro = () => {
   router.push('/register')
 }
 
-// Valida formato básico de RUT
 function validateRut(rut: string): boolean {
   return /^[0-9]{1,2}\.[0-9]{3}\.[0-9]{3}-[0-9kK]{1}$/.test(rut)
 }
 
-// Formatea el RUT como 12.345.678-9
 function formatRut(rut: string): string {
   const limpio = rut.replace(/[^\dkK]/g, '').toUpperCase()
-
   if (limpio.length <= 1) return limpio
 
   const cuerpo = limpio.slice(0, -1)
   const dv = limpio.slice(-1)
-
   let formateado = ''
   for (let i = cuerpo.length; i > 0; i -= 3) {
     const inicio = Math.max(i - 3, 0)
@@ -105,87 +104,172 @@ function formatRut(rut: string): string {
 </script>
 
 <style scoped>
+/* En Login.vue, modifica estas clases: */
+.fullscreen-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Elimina el fondo del gradiente (ya está en App.vue) */
+  animation: fadeIn 1s ease-in-out;
+}
+
 .login-container {
-  max-width: 400px;
-  margin: 40px auto;
-  padding: 24px;
-  background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
-  font-family: 'Segoe UI', sans-serif;
-  color: #333;
+  width: 100%;
+  max-width: 420px;
+  padding: 32px;
+  background: #ffffffee;
+  border-radius: 20px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
   text-align: center;
+  font-family: 'Poppins', sans-serif;
+  color: #2c3e50;
+  backdrop-filter: blur(10px);
+  animation: slideUp 0.8s ease-out;
+}
+
+/* Opcional: Si usas un div padre como body o wrapper */
+body, html {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f0f2f5;
+}
+
+.logo {
+  width: 140px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 8px;
+  color: #1a770e;
+  font-weight: 700;
 }
 
 h2 {
-  margin-bottom: 0.5rem;
-  color: #d32f2f;
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+  color: #005493;
 }
 
 p {
   font-size: 0.95rem;
-  color: #555;
+  color: #444;
+  margin-bottom: 20px;
 }
 
 .form-group {
-  margin-bottom: 16px;
+  margin-bottom: 20px;
   text-align: left;
 }
 
 label {
   display: block;
-  margin-bottom: 6px;
   font-weight: 600;
+  margin-bottom: 6px;
+  color: #333;
 }
 
 input {
   width: 100%;
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 0.95rem;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #cfbfbf;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background-color: #b2b7ba;
+}
+
+input:focus {
+  border-color: #0077c2;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 119, 194, 0.2);
 }
 
 button {
   width: 100%;
-  padding: 10px;
-  background: #e53935;
+  padding: 12px;
+  background: #005493;
   color: #fff;
   border: none;
-  border-radius: 6px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: bold;
   cursor: pointer;
-  font-size: 0.95rem;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 button:hover {
-  background: #c62828;
+  background: #003f70;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
 .error {
   color: #d32f2f;
-  margin-top: 8px;
   font-weight: bold;
+  margin-top: 12px;
+  animation: shake 0.5s ease-in-out;
 }
 
 .registro-opcion {
-  margin-top: 20px;
-  text-align: center;
+  margin-top: 24px;
 }
 
 .btn-registro {
   background: transparent;
-  border: 1px solid #e53935;
-  color: #e53935;
-  padding: 8px 16px;
-  border-radius: 6px;
-  font-size: 0.9rem;
+  border: 2px solid #005493;
+  color: #005493;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .btn-registro:hover {
-  background: #e53935;
-  color: white;
+  background: #005493;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-5px); }
+  40% { transform: translateX(5px); }
+  60% { transform: translateX(-5px); }
+  80% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
 }
 </style>
