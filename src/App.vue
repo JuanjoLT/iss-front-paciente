@@ -1,20 +1,33 @@
 <template>
   <div id="app">
-    <Header /> 
+    <!-- Muestra solo si mostrarLayout es true -->
+    <Header v-if="mostrarLayout" />
 
     <main class="main-content">
       <router-view />
     </main>
 
-    <Footer /> 
+    <!-- Muestra solo si mostrarLayout es true -->
+    <Footer v-if="mostrarLayout" />
   </div>
 </template>
 
-<script setup lang="ts">        
-import Header from './components/Header.vue';
-import Footer from './components/Footer.vue';
 
+<script setup lang="ts">
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
+import Header from './components/Header.vue'
+import Footer from './components/Footer.vue'
+
+const route = useRoute()
+
+// ✅ Ocultar solo en rutas exactas: /login y /register
+const mostrarLayout = computed(() => {
+  const ruta = route.path.toLowerCase()
+  return ruta !== '/' && ruta !== '/register'
+})
 </script>
+
 
 <style scoped>
 #app {
@@ -28,6 +41,5 @@ import Footer from './components/Footer.vue';
   flex: 1;
   width: 100%;
   max-width: 100vw;
-  /* padding: 1rem; */
 }
 </style>

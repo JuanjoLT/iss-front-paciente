@@ -22,18 +22,42 @@ interface Props {
 const props = defineProps<Props>()
 
 const puntaje = computed(() => {
-  const valores = Object.values(props.sintomas)
-  return valores.reduce((acc, sintoma) => {
-    if (sintoma === 'Leve') return acc + 1
-    if (sintoma === 'Moderado') return acc + 2
-    if (sintoma === 'Grave') return acc + 3
-    return acc
-  }, 0)
+  let total = 0
+
+  for (const [clave, valor] of Object.entries(props.sintomas)) {
+    const valorNumerico = parseFloat(valor)
+
+    if (!isNaN(valorNumerico)) {
+      // Síntomas numéricos
+      if (clave.includes('temperatura')) {
+        if (valorNumerico >= 38.0) total += 3
+        else if (valorNumerico >= 37.0) total += 2
+        else total += 1
+      } else if (clave.includes('saturacion')) {
+        if (valorNumerico < 90) total += 3
+        else if (valorNumerico < 95) total += 2
+        else total += 1
+      } else if (clave.includes('frecuencia')) {
+        if (valorNumerico >= 120 || valorNumerico <= 40) total += 3
+        else if (valorNumerico >= 100 || valorNumerico <= 50) total += 2
+        else total += 1
+      } else {
+        total += 1 // Valor numérico desconocido, leve por defecto
+      }
+    } else {
+      // Síntomas tipo nivel
+      if (valor === 'Leve') total += 1
+      else if (valor === 'Moderado') total += 2
+      else if (valor === 'Grave') total += 3
+    }
+  }
+
+  return total
 })
 
 const colorSemaforo = computed(() => {
-  if (puntaje.value <= 3) return 'verde'
-  if (puntaje.value <= 6) return 'amarillo'
+  if (puntaje.value <= 4) return 'verde'
+  if (puntaje.value <= 8) return 'amarillo'
   return 'rojo'
 })
 
@@ -52,10 +76,14 @@ const mensaje = computed(() => {
 
 const icono = computed(() => {
   switch (colorSemaforo.value) {
-    case 'verde': return '🟢'
-    case 'amarillo': return '🟡'
-    case 'rojo': return '🔴'
-    default: return ''
+    case 'verde':
+      return '🟢'
+    case 'amarillo':
+      return '🟡'
+    case 'rojo':
+      return '🔴'
+    default:
+      return ''
   }
 })
 </script>

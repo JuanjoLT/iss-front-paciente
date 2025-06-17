@@ -13,7 +13,7 @@
           <tr>
             <th>Seleccionar</th>
             <th>Síntoma</th>
-            <th>Nivel</th>
+            <th>Valor</th>
           </tr>
         </thead>
         <tbody>
@@ -21,11 +21,25 @@
             <td><input type="checkbox" v-model="estado.activo" /></td>
             <td>{{ formatearNombre(nombre) }}</td>
             <td>
-              <select v-if="estado.activo" v-model="estado.nivel" required>
-                <option value="Leve">Leve</option>
-                <option value="Moderado">Moderado</option>
-                <option value="Grave">Grave</option>
-              </select>
+              <template v-if="estado.activo">
+                <select
+                  v-if="estado.tipo === 'nivel'"
+                  v-model="estado.valor"
+                  required
+                >
+                  <option value="Leve">Leve</option>
+                  <option value="Moderado">Moderado</option>
+                  <option value="Grave">Grave</option>
+                </select>
+
+                <input
+                  v-else-if="estado.tipo === 'numerico'"
+                  type="number"
+                  v-model="estado.valor"
+                  placeholder="Ingresa valor"
+                  required
+                />
+              </template>
             </td>
           </tr>
         </tbody>
@@ -44,26 +58,28 @@ import axios from 'axios'
 import HistorialSintomas from './HistorialSintomas.vue'
 
 const sintomas = ref({
-  tos: { activo: false, nivel: 'Leve' },
-  fiebre: { activo: false, nivel: 'Leve' },
-  dolorMuscular: { activo: false, nivel: 'Leve' },
-  dolorCabeza: { activo: false, nivel: 'Leve' },
-  dificultadRespirar: { activo: false, nivel: 'Leve' },
-  fatiga: { activo: false, nivel: 'Leve' },
-  escalofrios: { activo: false, nivel: 'Leve' },
-  congestionNasal: { activo: false, nivel: 'Leve' },
-  dolorGarganta: { activo: false, nivel: 'Leve' },
-  perdidaOlfato: { activo: false, nivel: 'Leve' },
-  perdidaGusto: { activo: false, nivel: 'Leve' },
-  nauseas: { activo: false, nivel: 'Leve' },
-  vomitos: { activo: false, nivel: 'Leve' },
-  diarrea: { activo: false, nivel: 'Leve' },
-  dolorPecho: { activo: false, nivel: 'Leve' },
-  sudoracionExcesiva: { activo: false, nivel: 'Leve' },
-  mareos: { activo: false, nivel: 'Leve' },
-  palpitaciones: { activo: false, nivel: 'Leve' },
-  dolorArticular: { activo: false, nivel: 'Leve' },
-  insomnio: { activo: false, nivel: 'Leve' }
+  tos: { activo: false, valor: 'Leve', tipo: 'nivel' },
+  fiebre: { activo: false, valor: 'Leve', tipo: 'nivel' },
+  temperatura: { activo: false, valor: '', tipo: 'numerico' },
+  frecuenciaCardiaca: { activo: false, valor: '', tipo: 'numerico' },
+  saturacionOxigeno: { activo: false, valor: '', tipo: 'numerico' },
+  dolorCabeza: { activo: false, valor: 'Leve', tipo: 'nivel' },
+  dificultadRespirar: { activo: false, valor: 'Leve', tipo: 'nivel' },
+  fatiga: { activo: false, valor: 'Leve', tipo: 'nivel' },
+  escalofrios: { activo: false, valor: 'Leve', tipo: 'nivel' },
+  congestionNasal: { activo: false, valor: 'Leve', tipo: 'nivel' },
+  dolorGarganta: { activo: false, valor: 'Leve', tipo: 'nivel' },
+  perdidaOlfato: { activo: false, valor: 'Leve', tipo: 'nivel' },
+  perdidaGusto: { activo: false, valor: 'Leve', tipo: 'nivel' },
+  nauseas: { activo: false, valor: 'Leve', tipo: 'nivel' },
+  vomitos: { activo: false, valor: 'Leve', tipo: 'nivel' },
+  diarrea: { activo: false, valor: 'Leve', tipo: 'nivel' },
+  dolorPecho: { activo: false, valor: 'Leve', tipo: 'nivel' },
+  sudoracionExcesiva: { activo: false, valor: 'Leve', tipo: 'nivel' },
+  mareos: { activo: false, valor: 'Leve', tipo: 'nivel' },
+  palpitaciones: { activo: false, valor: 'Leve', tipo: 'nivel' },
+  dolorArticular: { activo: false, valor: 'Leve', tipo: 'nivel' },
+  insomnio: { activo: false, valor: 'Leve', tipo: 'nivel' }
 })
 
 const formatearNombre = (str: string) =>
@@ -78,7 +94,8 @@ const seleccionarTodos = () => {
 const limpiarTodos = () => {
   for (const clave in sintomas.value) {
     sintomas.value[clave].activo = false
-    sintomas.value[clave].nivel = 'Leve'
+    sintomas.value[clave].valor =
+      sintomas.value[clave].tipo === 'nivel' ? 'Leve' : ''
   }
 }
 
@@ -87,8 +104,8 @@ const submitForm = async () => {
 
   for (const clave in sintomas.value) {
     const sintoma = sintomas.value[clave]
-    if (sintoma.activo) {
-      sintomasReportados[clave] = sintoma.nivel
+    if (sintoma.activo && sintoma.valor !== '') {
+      sintomasReportados[clave] = sintoma.valor
     }
   }
 
@@ -113,7 +130,6 @@ const submitForm = async () => {
   border-radius: 1rem;
   margin-top: 1rem;
   box-shadow: 0 2px 8px rgba(76, 175, 80, 0.2);
-  /* width: 100vw; */
   max-width: 100vw;
 }
 
@@ -162,15 +178,16 @@ h2 {
   color: #1b5e20;
 }
 
-.tabla-sintomas td select {
+.tabla-sintomas td select,
+.tabla-sintomas td input[type='number'] {
   width: 100%;
   padding: 0.3rem;
   border-radius: 0.3rem;
   border: 1px solid #a5d6a7;
 }
 
-button[type="submit"] {
-  background-color: #4CAF50;
+button[type='submit'] {
+  background-color: #4caf50;
   color: white;
   padding: 0.75rem 2rem;
   border: none;
@@ -181,7 +198,7 @@ button[type="submit"] {
   margin: 0 auto;
 }
 
-button[type="submit"]:hover {
+button[type='submit']:hover {
   background-color: #388e3c;
 }
 </style>

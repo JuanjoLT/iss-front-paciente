@@ -5,9 +5,18 @@
 
     <form @submit.prevent="handleRegister" class="form">
       <div class="form-group">
-        <label for="rut">RUT:</label>
-      <input v-model="rut" placeholder="RUT" />
-      </div>
+          <label for="rut">RUT</label>
+          <input
+  id="rut"
+  v-model="rut"
+  @input="formatearRut"
+  type="text"
+  placeholder="12.345.678-9"
+  maxlength="12"
+  required
+/>
+
+        </div>
 
       <div class="form-group">
         <label for="nombre">NOMBRE COMPLETO:</label>
@@ -64,8 +73,37 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+// import { ref } from 'vue'
 
 const rut = ref('')
+
+const formatearRut = () => {
+  let valor = rut.value.replace(/\./g, '').replace(/-/g, '').replace(/[^\dkK]/g, '').toUpperCase()
+
+  if (valor.length <= 1) {
+    rut.value = valor
+    return
+  }
+
+  const cuerpo = valor.slice(0, -1)
+  const dv = valor.slice(-1)
+
+  let cuerpoFormateado = ''
+  let contador = 0
+
+  for (let i = cuerpo.length - 1; i >= 0; i--) {
+    cuerpoFormateado = cuerpo[i] + cuerpoFormateado
+    contador++
+    if (contador === 3 && i !== 0) {
+      cuerpoFormateado = '.' + cuerpoFormateado
+      contador = 0
+    }
+  }
+
+  rut.value = `${cuerpoFormateado}-${dv}`
+}
+
+
 const nombre = ref('')
 const email = ref('')
 const password = ref('')
@@ -198,7 +236,7 @@ label {
 
 input,
 select {
-  width: 100%;
+  width: 94%;
   padding: 10px;
   border-radius: 6px;
   border: 1px solid #ddd;

@@ -61,7 +61,7 @@ const cerrarSesion = () => {
 
 h1 {
   text-align: center;
-  color: #c8d9d9;
+  color: #ffffff;
   margin-bottom: 1.5rem;
   font-size: 2rem;
 }

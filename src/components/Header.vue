@@ -10,6 +10,10 @@
           <li><a href="/">SALIR</a></li>
         </ul>
       </nav>
+
+      <!-- <button @click="mostrarPerfil = !mostrarPerfil">
+        {{ mostrarPerfil ? 'Ocultar Perfil' : 'Ver Perfil' }}
+      </button> -->
     </div>
   </header>
 </template>

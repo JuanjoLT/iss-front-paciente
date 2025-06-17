@@ -1,26 +1,14 @@
 {
   "registros": [
     {
-      "id": "b6d6",
-      "fecha": "16/6/2025, 4:58:27 p.m.",
-      "sintomas": {}
-    },
-    {
-      "id": "00ea",
-      "fecha": "16/6/2025, 4:58:35 p.m.",
-      "sintomas": {
-        "palpitaciones": "Leve",
-        "dolorArticular": "Leve",
-        "insomnio": "Leve"
-      }
-    },
-    {
-      "id": "f24b",
-      "fecha": "16/6/2025, 4:58:39 p.m.",
+      "id": "dcd6",
+      "fecha": "17/6/2025, 6:27:03 p.m.",
       "sintomas": {
         "tos": "Leve",
         "fiebre": "Leve",
-        "dolorMuscular": "Leve",
+        "temperatura": 40,
+        "frecuenciaCardiaca": 70,
+        "saturacionOxigeno": 85,
         "dolorCabeza": "Leve",
         "dificultadRespirar": "Leve",
         "fatiga": "Leve",
@@ -41,55 +29,10 @@
       }
     },
     {
-      "id": "2a54",
-      "fecha": "16/6/2025, 5:13:31 p.m.",
+      "id": "0f4c",
+      "fecha": "17/6/2025, 7:00:30 p.m.",
       "sintomas": {
-        "tos": "Leve",
-        "fiebre": "Leve",
-        "dolorMuscular": "Leve",
-        "dolorCabeza": "Leve",
-        "dificultadRespirar": "Grave",
-        "fatiga": "Leve",
-        "escalofrios": "Leve",
-        "congestionNasal": "Leve",
-        "dolorGarganta": "Leve",
-        "perdidaOlfato": "Leve",
-        "perdidaGusto": "Leve",
-        "nauseas": "Leve",
-        "vomitos": "Leve",
-        "diarrea": "Leve",
-        "dolorPecho": "Leve",
-        "sudoracionExcesiva": "Leve",
-        "mareos": "Leve",
-        "palpitaciones": "Leve",
-        "dolorArticular": "Leve",
-        "insomnio": "Leve"
-      }
-    },
-    {
-      "id": "2eca",
-      "fecha": "16/6/2025, 11:21:26 p.m.",
-      "sintomas": {
-        "tos": "Leve",
-        "fiebre": "Leve",
-        "dolorMuscular": "Leve",
-        "dolorCabeza": "Leve",
-        "dificultadRespirar": "Leve",
-        "fatiga": "Leve",
-        "escalofrios": "Leve",
-        "congestionNasal": "Leve",
-        "dolorGarganta": "Leve",
-        "perdidaOlfato": "Leve",
-        "perdidaGusto": "Leve",
-        "nauseas": "Leve",
-        "vomitos": "Leve",
-        "diarrea": "Leve",
-        "dolorPecho": "Leve",
-        "sudoracionExcesiva": "Leve",
-        "mareos": "Leve",
-        "palpitaciones": "Leve",
-        "dolorArticular": "Leve",
-        "insomnio": "Leve"
+        "temperatura": 4
       }
     }
   ],
@@ -114,6 +57,28 @@
       "genero": "masculino",
       "fechaNacimiento": "2025-06-05",
       "telefono": "+56998765432",
+      "rol": ""
+    },
+    {
+      "id": "22ec",
+      "rut": "12.345.678-9",
+      "nombre": "Hernan",
+      "email": "aaa@a.com",
+      "password": "123456789",
+      "genero": "masculino",
+      "fechaNacimiento": "2025-06-11",
+      "telefono": "+56998765432",
+      "rol": ""
+    },
+    {
+      "id": "04fb",
+      "rut": "11.111.111-1",
+      "nombre": "Cualquiera",
+      "email": "aaaaa@aa.com",
+      "password": "123456789",
+      "genero": "masculino",
+      "fechaNacimiento": "2017-05-09",
+      "telefono": "+5698888888",
       "rol": ""
     }
   ]
