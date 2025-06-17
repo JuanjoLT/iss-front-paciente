@@ -4,31 +4,26 @@
     <p>POR FAVOR, COMPLETA LOS SIGUIENTES CAMPOS PARA REGISTRARSE.</p>
 
     <form @submit.prevent="handleRegister" class="form">
-      <!-- RUT -->
       <div class="form-group">
         <label for="rut">RUT:</label>
-        <input id="rut" v-model="rut" type="text" placeholder="12.345.678-9" required />
+      <input v-model="rut" placeholder="RUT" />
       </div>
 
-      <!-- Nombre -->
       <div class="form-group">
         <label for="nombre">NOMBRE COMPLETO:</label>
         <input id="nombre" v-model="nombre" type="text" placeholder="Tu nombre" required />
       </div>
 
-      <!-- Correo Electrónico -->
       <div class="form-group">
         <label for="email">CORREO ELECTRÓNICO:</label>
         <input id="email" v-model="email" type="email" placeholder="tucorreo@ejemplo.com" required />
       </div>
 
-      <!-- Contraseña -->
       <div class="form-group">
         <label for="password">CONTRASEÑA:</label>
         <input id="password" v-model="password" type="password" placeholder="••••••••" required />
       </div>
 
-      <!-- Género -->
       <div class="form-group">
         <label for="genero">GÉNERO:</label>
         <select id="genero" v-model="genero" required>
@@ -40,40 +35,25 @@
         </select>
       </div>
 
-      <!-- Fecha de Nacimiento -->
       <div class="form-group">
         <label for="fechaNacimiento">FECHA DE NACIMIENTO:</label>
         <input id="fechaNacimiento" v-model="fechaNacimiento" type="date" required />
       </div>
 
-      <!-- Teléfono -->
       <div class="form-group">
         <label for="telefono">TELÉFONO:</label>
         <input id="telefono" v-model="telefono" type="tel" placeholder="+56912345678" required />
       </div>
 
-      <!-- Rol -->
-      <div class="form-group">
-        <label for="rol">ROL EN EL SISTEMA:</label>
-        <select id="rol" v-model="rol" required>
-          <option value="" disabled selected>Selecciona tu rol</option>
-          <option value="medico">Médico</option>
-          <option value="enfermero">Enfermero</option>
-          <option value="paciente">Paciente</option>
-          <option value="administrador">Administrador</option>
-        </select>
-      </div>
+   
 
-      <!-- Botón de Registro -->
       <div class="form-group">
         <button type="submit">REGISTRARSE</button>
       </div>
 
-      <!-- Mensaje de error -->
       <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
     </form>
 
-    <!-- Enlace a Login -->
     <div class="volver-login">
       <p>¿YA TIENES CUENTA?</p>
       <button @click="irAlLogin" class="btn-volver">INICIAR SESIÓN</button>
@@ -96,7 +76,7 @@ const rol = ref('')
 const errorMessage = ref('')
 const router = useRouter()
 
-const handleRegister = () => {
+const handleRegister = async () => {
   if (!validateRut(rut.value)) {
     errorMessage.value = 'RUT inválido'
     return
@@ -117,7 +97,6 @@ const handleRegister = () => {
     return
   }
 
-  // Simulación de registro exitoso
   const userData = {
     rut: rut.value,
     nombre: nombre.value,
@@ -129,20 +108,29 @@ const handleRegister = () => {
     rol: rol.value
   }
 
-  console.log('Usuario registrado:', userData)
+  try {
+    const response = await fetch('http://localhost:3001/usuarios', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(userData)
+    })
 
-  // Opcional: Guardar en localStorage
-  localStorage.setItem('usuarioRegistrado', JSON.stringify(userData))
+    if (!response.ok) throw new Error('Error al registrar usuario')
 
-  // Redirigir al login
-  router.push('/')
+    console.log('Usuario guardado en JSON Server')
+    router.push('/')
+  } catch (error) {
+    console.error('Error:', error)
+    errorMessage.value = 'Error al guardar los datos'
+  }
 }
 
 const irAlLogin = () => {
   router.push('/')
 }
 
-// Funciones de validación
 function validateRut(rut: string): boolean {
   return /^[0-9]{1,2}\.[0-9]{3}\.[0-9]{3}-[0-9kK]{1}$/.test(rut)
 }
@@ -157,7 +145,7 @@ function validateEmail(email: string): boolean {
   max-width: 420px;
   margin: 40px auto;
   padding: 24px;
-  background: #f8f9fa; /* Fondo claro */
+  background: #f8f9fa;
   border-radius: 12px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   font-family: 'Segoe UI', sans-serif;
@@ -165,7 +153,6 @@ function validateEmail(email: string): boolean {
   animation: fadeInUp 0.8s ease-out;
 }
 
-/* Animaciones */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -188,7 +175,7 @@ function validateEmail(email: string): boolean {
 
 h2 {
   margin-bottom: 0.5rem;
-  color: #065e06; /* Verde institucional */
+  color: #065e06;
   font-weight: bold;
 }
 
@@ -229,7 +216,7 @@ select:focus {
 button {
   width: 100%;
   padding: 10px;
-  background: #007722; /* Verde principal */
+  background: #007722;
   color: #fff;
   border: none;
   border-radius: 6px;

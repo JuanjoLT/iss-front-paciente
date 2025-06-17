@@ -15,8 +15,10 @@
       <h2>Perfil del Paciente</h2>
       <p><strong>Nombre:</strong> {{ paciente.nombre }}</p>
       <p><strong>RUT:</strong> {{ paciente.rut }}</p>
-      <p><strong>Edad:</strong> {{ paciente.edad }}</p>
-      <p><strong>Correo:</strong> {{ paciente.correo }}</p>
+      <p><strong>Email:</strong> {{ paciente.email }}</p>
+      <p><strong>Género:</strong> {{ paciente.genero }}</p>
+      <p><strong>Fecha de Nacimiento:</strong> {{ paciente.fechaNacimiento }}</p>
+      <p><strong>Teléfono:</strong> {{ paciente.telefono }}</p>
     </div>
 
     <BotonPanico />

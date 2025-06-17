@@ -48,6 +48,7 @@
 <script lang="ts" setup>
 import { ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
+import axios from 'axios'
 
 const rut = ref('')
 const password = ref('')
@@ -60,7 +61,7 @@ watch(rut, (nuevo, anterior) => {
   }
 })
 
-const handleLogin = () => {
+async function handleLogin() {
   if (!validateRut(rut.value)) {
     errorMessage.value = 'RUT inválido'
     return
@@ -71,10 +72,24 @@ const handleLogin = () => {
     return
   }
 
-  if (rut.value === '12.345.678-9' && password.value === '123456') {
-    router.push('/dashboard')
-  } else {
-    errorMessage.value = 'Credenciales incorrectas'
+  try {
+    const response = await axios.get('http://localhost:3001/usuarios', {
+      params: {
+        rut: rut.value,
+        password: password.value
+      }
+    })
+
+    if (response.data.length > 0) {
+      const usuario = response.data[0]
+      localStorage.setItem('usuarioLogueado', JSON.stringify(usuario))
+      router.push('/dashboard') // o '/panel' si así está en tus rutas
+    } else {
+      errorMessage.value = 'Credenciales incorrectas'
+    }
+  } catch (error) {
+    console.error(error)
+    errorMessage.value = 'Error de conexión con el servidor'
   }
 }
 
@@ -102,6 +117,7 @@ function formatRut(rut: string): string {
   return `${formateado}-${dv}`
 }
 </script>
+
 
 <style scoped>
 /* En Login.vue, modifica estas clases: */

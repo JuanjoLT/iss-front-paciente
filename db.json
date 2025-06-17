@@ -65,6 +65,45 @@
         "dolorArticular": "Leve",
         "insomnio": "Leve"
       }
+    },
+    {
+      "id": "2eca",
+      "fecha": "16/6/2025, 11:21:26 p.m.",
+      "sintomas": {
+        "tos": "Leve",
+        "fiebre": "Leve",
+        "dolorMuscular": "Leve",
+        "dolorCabeza": "Leve",
+        "dificultadRespirar": "Leve",
+        "fatiga": "Leve",
+        "escalofrios": "Leve",
+        "congestionNasal": "Leve",
+        "dolorGarganta": "Leve",
+        "perdidaOlfato": "Leve",
+        "perdidaGusto": "Leve",
+        "nauseas": "Leve",
+        "vomitos": "Leve",
+        "diarrea": "Leve",
+        "dolorPecho": "Leve",
+        "sudoracionExcesiva": "Leve",
+        "mareos": "Leve",
+        "palpitaciones": "Leve",
+        "dolorArticular": "Leve",
+        "insomnio": "Leve"
+      }
+    }
+  ],
+  "usuarios": [
+    {
+      "id": "7b92",
+      "rut": "9.765.432-1",
+      "nombre": "Ricardo solar",
+      "email": "A@a.com",
+      "password": "654321",
+      "genero": "masculino",
+      "fechaNacimiento": "2025-06-11",
+      "telefono": "+56912345678",
+      "rol": "paciente"
     }
   ]
 }
