@@ -18,9 +18,7 @@
         </thead>
         <tbody>
           <tr v-for="(estado, nombre) in sintomas" :key="nombre">
-            <td>
-              <input type="checkbox" v-model="estado.activo" />
-            </td>
+            <td><input type="checkbox" v-model="estado.activo" /></td>
             <td>{{ formatearNombre(nombre) }}</td>
             <td>
               <select v-if="estado.activo" v-model="estado.nivel" required>
@@ -42,9 +40,9 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import axios from 'axios'
 import HistorialSintomas from './HistorialSintomas.vue'
 
-// 20 síntomas
 const sintomas = ref({
   tos: { activo: false, nivel: 'Leve' },
   fiebre: { activo: false, nivel: 'Leve' },
@@ -68,7 +66,6 @@ const sintomas = ref({
   insomnio: { activo: false, nivel: 'Leve' }
 })
 
-// Convierte camelCase a "Nombre legible"
 const formatearNombre = (str: string) =>
   str.replace(/([A-Z])/g, ' $1').replace(/^./, s => s.toUpperCase())
 
@@ -85,7 +82,7 @@ const limpiarTodos = () => {
   }
 }
 
-const submitForm = () => {
+const submitForm = async () => {
   const sintomasReportados: Record<string, string> = {}
 
   for (const clave in sintomas.value) {
@@ -96,16 +93,16 @@ const submitForm = () => {
   }
 
   const nuevoRegistro = {
-    fecha: new Date().toLocaleDateString(),
+    fecha: new Date().toLocaleString(),
     sintomas: sintomasReportados
   }
 
-  const historial = localStorage.getItem('historialSintomas')
-  const historialParsed = historial ? JSON.parse(historial) : []
-  historialParsed.push(nuevoRegistro)
-  localStorage.setItem('historialSintomas', JSON.stringify(historialParsed))
-
-  limpiarTodos()
+  try {
+    await axios.post('http://localhost:3001/registros', nuevoRegistro)
+    limpiarTodos()
+  } catch (error) {
+    console.error('Error al guardar síntomas:', error)
+  }
 }
 </script>
 
@@ -116,6 +113,8 @@ const submitForm = () => {
   border-radius: 1rem;
   margin-top: 1rem;
   box-shadow: 0 2px 8px rgba(76, 175, 80, 0.2);
+  width: 100vw;
+  max-width: 100vw;
 }
 
 h2 {

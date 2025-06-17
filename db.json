@@ -1,0 +1,70 @@
+{
+  "registros": [
+    {
+      "id": "b6d6",
+      "fecha": "16/6/2025, 4:58:27 p.m.",
+      "sintomas": {}
+    },
+    {
+      "id": "00ea",
+      "fecha": "16/6/2025, 4:58:35 p.m.",
+      "sintomas": {
+        "palpitaciones": "Leve",
+        "dolorArticular": "Leve",
+        "insomnio": "Leve"
+      }
+    },
+    {
+      "id": "f24b",
+      "fecha": "16/6/2025, 4:58:39 p.m.",
+      "sintomas": {
+        "tos": "Leve",
+        "fiebre": "Leve",
+        "dolorMuscular": "Leve",
+        "dolorCabeza": "Leve",
+        "dificultadRespirar": "Leve",
+        "fatiga": "Leve",
+        "escalofrios": "Leve",
+        "congestionNasal": "Leve",
+        "dolorGarganta": "Leve",
+        "perdidaOlfato": "Leve",
+        "perdidaGusto": "Leve",
+        "nauseas": "Leve",
+        "vomitos": "Leve",
+        "diarrea": "Leve",
+        "dolorPecho": "Leve",
+        "sudoracionExcesiva": "Leve",
+        "mareos": "Leve",
+        "palpitaciones": "Leve",
+        "dolorArticular": "Leve",
+        "insomnio": "Leve"
+      }
+    },
+    {
+      "id": "2a54",
+      "fecha": "16/6/2025, 5:13:31 p.m.",
+      "sintomas": {
+        "tos": "Leve",
+        "fiebre": "Leve",
+        "dolorMuscular": "Leve",
+        "dolorCabeza": "Leve",
+        "dificultadRespirar": "Grave",
+        "fatiga": "Leve",
+        "escalofrios": "Leve",
+        "congestionNasal": "Leve",
+        "dolorGarganta": "Leve",
+        "perdidaOlfato": "Leve",
+        "perdidaGusto": "Leve",
+        "nauseas": "Leve",
+        "vomitos": "Leve",
+        "diarrea": "Leve",
+        "dolorPecho": "Leve",
+        "sudoracionExcesiva": "Leve",
+        "mareos": "Leve",
+        "palpitaciones": "Leve",
+        "dolorArticular": "Leve",
+        "insomnio": "Leve"
+      }
+    }
+  ]
+}

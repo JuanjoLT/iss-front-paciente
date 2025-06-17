@@ -21,7 +21,7 @@
 }
 
 .header {
-  width: 110%;
+  width: 100vw;
   background-color: #065e06;
   color: rgb(248, 231, 231);
   text-align: center;
@@ -30,7 +30,6 @@
 
 
 .container {
-  max-width: 1200px;
   margin: 0 auto;
   padding: 0 1.5rem;
   display: flex;
@@ -53,7 +52,7 @@
 }
 
 .nav a {
-  color: #29dee8; /* rojo oscuro para links */
+  color: #10fd20; /* rojo oscuro para links */
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;

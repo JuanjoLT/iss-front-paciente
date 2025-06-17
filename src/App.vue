@@ -1,12 +1,12 @@
 <template>
   <div id="app">
-    <Header />
+    <!-- <Header /> -->
 
     <main class="main-content">
       <router-view />
     </main>
 
-    <Footer />
+    <!-- <Footer /> -->
   </div>
 </template>
 
@@ -20,10 +20,13 @@ import Footer from './components/Footer.vue'
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  min-width: 100vw;
 }
 
 .main-content {
   flex: 1;
-  padding: 1rem;
+  width: 100%;
+  max-width: 100vw;
+  /* padding: 1rem; */
 }
 </style>

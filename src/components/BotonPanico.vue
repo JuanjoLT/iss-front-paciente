@@ -1,7 +1,7 @@
 <template>
   <div class="boton-panico">
     <button @click="activarPanico" :disabled="enviado" class="boton">
-      🚨 Botón de Pánico
+      🚨 BOTÓN DE PÁNICO
     </button>
     <p v-if="enviado" class="mensaje">¡Alerta enviada! Personal médico ha sido notificado.</p>
   </div>
@@ -37,10 +37,17 @@ function activarPanico() {
   border-radius: 0.8rem;
   cursor: pointer;
 }
+.boton-panico button:hover {
+  background-color: #cd3544;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 95, 26, 0.2);
+}
 .boton:disabled {
   background-color: #670303;
   cursor: not-allowed;
 }
+
+
 .mensaje {
   margin-top: 1rem;
   color: #ff0000;

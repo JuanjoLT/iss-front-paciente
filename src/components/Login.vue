@@ -158,7 +158,7 @@ h1 {
 h2 {
   font-size: 1.3rem;
   margin-bottom: 12px;
-  color: #005493;
+  color: #1fd74d;
 }
 
 p {
@@ -198,7 +198,7 @@ input:focus {
 button {
   width: 100%;
   padding: 12px;
-  background: #005493;
+  background: #4bc72f;
   color: #fff;
   border: none;
   border-radius: 10px;
@@ -209,7 +209,7 @@ button {
 }
 
 button:hover {
-  background: #003f70;
+  background: #077807;
   transform: translateY(-2px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
@@ -227,8 +227,8 @@ button:hover {
 
 .btn-registro {
   background: transparent;
-  border: 2px solid #005493;
-  color: #005493;
+  border: 2px solid #009320;
+  color: #04970b;
   padding: 10px 18px;
   border-radius: 10px;
   font-size: 0.95rem;
@@ -238,7 +238,7 @@ button:hover {
 }
 
 .btn-registro:hover {
-  background: #005493;
+  background: #077807;
   color: #fff;
   transform: translateY(-2px);
 }

@@ -48,9 +48,9 @@ const cerrarSesion = () => {
 
 <style scoped>
 .dashboard {
-  max-width: 1000px;
-  margin: 100px auto; /* Centrado horizontal */
-  padding: 1rem;
+  /* max-width: 1000px; */
+  /* margin: 100px auto;  */
+  /* padding: 1rem; */
   font-family: 'Segoe UI', sans-serif;
   color: #054f1a;
 }
@@ -81,7 +81,7 @@ h1 {
 }
 
 .acciones button:hover {
-  background-color: #009999;
+  background-color: #077807;
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 95, 26, 0.2);
 }
@@ -91,7 +91,7 @@ h1 {
 }
 
 .acciones .cerrar:hover {
-  background-color: #009999;
+  background-color: #077807;
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(176, 0, 32, 0.2);
 }
