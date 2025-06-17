@@ -52,7 +52,9 @@ const cerrarSesion = () => {
 .dashboard {
   /* max-width: 1000px; */
   /* margin: 100px auto;  */
-  /* padding: 1rem; */
+  padding: 2rem;
+  padding-right: 2rem; /* Sobrescribe solo el lado derecho */
+
   font-family: 'Segoe UI', sans-serif;
   color: #054f1a;
 }
@@ -141,7 +143,7 @@ h1 {
 <style>
 /* Fondo degradado global */
 html, body {
-  background: linear-gradient(135deg, #31918c 0%, #624a52 100%);
+  background: linear-gradient(100deg, #5ddc14 0%, #274101 100%);
   font-family: 'Segoe UI', sans-serif;
 }
 </style>

@@ -113,7 +113,7 @@ const submitForm = async () => {
   border-radius: 1rem;
   margin-top: 1rem;
   box-shadow: 0 2px 8px rgba(76, 175, 80, 0.2);
-  width: 100vw;
+  /* width: 100vw; */
   max-width: 100vw;
 }
 

@@ -104,6 +104,17 @@
       "fechaNacimiento": "2025-06-11",
       "telefono": "+56912345678",
       "rol": "paciente"
+    },
+    {
+      "id": "b5e9",
+      "rut": "1.234.678-9",
+      "nombre": "Hernan",
+      "email": "aa@a.com",
+      "password": "123456789",
+      "genero": "masculino",
+      "fechaNacimiento": "2025-06-05",
+      "telefono": "+56998765432",
+      "rol": ""
     }
   ]
 }

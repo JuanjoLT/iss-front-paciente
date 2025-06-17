@@ -23,7 +23,7 @@
 .header {
   width: 100vw;
   background-color: #065e06;
-  color: rgb(248, 231, 231);
+  color: rgb(234, 223, 223);
   text-align: center;
   margin-top: auto; /* Opcional: asegura que el footer quede abajo */
 }
@@ -38,7 +38,7 @@
 }
 
 .logo {
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   font-weight: bold;
   letter-spacing: 0.5px;
 }
@@ -52,18 +52,18 @@
 }
 
 .nav a {
-  color: #10fd20; /* rojo oscuro para links */
+  color: #e1eee2; /* rojo oscuro para links */
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 800;
   transition: color 0.3s ease;
 }
 
 .nav a:hover,
 .nav a:focus {
-  color: #f9faff; /* blanco suave */
+  color: #35e828; /* blanco suave */
   outline: none;
   text-shadow: 0 0 2px rgba(150, 115, 115, 0.3);
-  transform: scale(1.05);
+  transform: scale(1.35);
 }
 
 </style>
