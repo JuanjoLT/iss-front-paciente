@@ -1,14 +1,14 @@
 <template>
   <div id="app">
     <!-- Muestra solo si mostrarLayout es true -->
-    <Header v-if="mostrarLayout" />
+    <!-- <Header v-if="mostrarLayout" /> -->
 
     <main class="main-content">
       <router-view />
     </main>
 
     <!-- Muestra solo si mostrarLayout es true -->
-    <Footer v-if="mostrarLayout" />
+    <!-- <Footer v-if="mostrarLayout" /> -->
   </div>
 </template>
 
@@ -28,18 +28,3 @@ const mostrarLayout = computed(() => {
 })
 </script>
 
-
-<style scoped>
-#app {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  min-width: 100vw;
-}
-
-.main-content {
-  flex: 1;
-  width: 100%;
-  max-width: 100vw;
-}
-</style>

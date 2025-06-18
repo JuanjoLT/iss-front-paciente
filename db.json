@@ -80,6 +80,17 @@
       "fechaNacimiento": "2017-05-09",
       "telefono": "+5698888888",
       "rol": ""
+    },
+    {
+      "rut": "20.023.898-2",
+      "nombre": "name",
+      "email": "test@localhost.cl",
+      "password": "1234567890",
+      "genero": "otro",
+      "fechaNacimiento": "2025-06-18",
+      "telefono": "+56981599872",
+      "rol": "",
+      "id": "cXaSCIT"
     }
   ]
 }

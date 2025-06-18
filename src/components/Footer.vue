@@ -10,7 +10,6 @@
 </script>
 <style scoped>
 .footer {
-  width: 100vw;
   background-color: #065e06;
   color: white;
   text-align: center;

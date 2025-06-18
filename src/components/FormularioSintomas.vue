@@ -56,31 +56,8 @@
 import { ref } from 'vue'
 import axios from 'axios'
 import HistorialSintomas from './HistorialSintomas.vue'
+import sintomas from '@/components/mocks/data/sintomas.js'
 
-const sintomas = ref({
-  tos: { activo: false, valor: 'Leve', tipo: 'nivel' },
-  fiebre: { activo: false, valor: 'Leve', tipo: 'nivel' },
-  temperatura: { activo: false, valor: '', tipo: 'numerico' },
-  frecuenciaCardiaca: { activo: false, valor: '', tipo: 'numerico' },
-  saturacionOxigeno: { activo: false, valor: '', tipo: 'numerico' },
-  dolorCabeza: { activo: false, valor: 'Leve', tipo: 'nivel' },
-  dificultadRespirar: { activo: false, valor: 'Leve', tipo: 'nivel' },
-  fatiga: { activo: false, valor: 'Leve', tipo: 'nivel' },
-  escalofrios: { activo: false, valor: 'Leve', tipo: 'nivel' },
-  congestionNasal: { activo: false, valor: 'Leve', tipo: 'nivel' },
-  dolorGarganta: { activo: false, valor: 'Leve', tipo: 'nivel' },
-  perdidaOlfato: { activo: false, valor: 'Leve', tipo: 'nivel' },
-  perdidaGusto: { activo: false, valor: 'Leve', tipo: 'nivel' },
-  nauseas: { activo: false, valor: 'Leve', tipo: 'nivel' },
-  vomitos: { activo: false, valor: 'Leve', tipo: 'nivel' },
-  diarrea: { activo: false, valor: 'Leve', tipo: 'nivel' },
-  dolorPecho: { activo: false, valor: 'Leve', tipo: 'nivel' },
-  sudoracionExcesiva: { activo: false, valor: 'Leve', tipo: 'nivel' },
-  mareos: { activo: false, valor: 'Leve', tipo: 'nivel' },
-  palpitaciones: { activo: false, valor: 'Leve', tipo: 'nivel' },
-  dolorArticular: { activo: false, valor: 'Leve', tipo: 'nivel' },
-  insomnio: { activo: false, valor: 'Leve', tipo: 'nivel' }
-})
 
 const formatearNombre = (str: string) =>
   str.replace(/([A-Z])/g, ' $1').replace(/^./, s => s.toUpperCase())
@@ -126,11 +103,22 @@ const submitForm = async () => {
 <style scoped>
 .formulario-sintomas {
   background-color: #f1f8e9;
-  padding: 2rem;
   border-radius: 1rem;
   margin-top: 1rem;
   box-shadow: 0 2px 8px rgba(76, 175, 80, 0.2);
-  max-width: 100vw;
+  width: 100%;
+  max-width: 600px;
+  min-width: 280px;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+@media (max-width: 650px) {
+  .formulario-sintomas {
+    padding: 1rem;
+    max-width: 98vw;
+  }
 }
 
 h2 {
@@ -161,7 +149,6 @@ h2 {
 }
 
 .tabla-sintomas {
-  width: 100%;
   border-collapse: collapse;
   margin-bottom: 1.5rem;
 }

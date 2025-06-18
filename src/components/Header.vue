@@ -17,6 +17,7 @@
     </div>
   </header>
 </template>
+
 <style scoped>
 :root {
   --color-fondo-header: #50a750;
@@ -25,7 +26,7 @@
 }
 
 .header {
-  width: 100vw;
+  width: auto;
   background-color: #065e06;
   color: rgb(234, 223, 223);
   text-align: center;

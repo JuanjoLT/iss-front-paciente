@@ -27,6 +27,7 @@
 </template>
 
 <script setup lang="ts">
+
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import BotonPanico from '@/components/BotonPanico.vue'
@@ -50,11 +51,6 @@ const cerrarSesion = () => {
 
 <style scoped>
 .dashboard {
-  /* max-width: 1000px; */
-  /* margin: 100px auto;  */
-  padding: 2rem;
-  padding-right: 2rem; /* Sobrescribe solo el lado derecho */
-
   font-family: 'Segoe UI', sans-serif;
   color: #054f1a;
 }
@@ -102,7 +98,6 @@ h1 {
 
 .perfil {
   background-color: #e8f5e9;
-  padding: 1.5rem;
   border-radius: 10px;
   border-left: 5px solid #065e06;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);

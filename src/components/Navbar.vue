@@ -80,11 +80,15 @@ const logout = () => {
   position: sticky;
   top: 0;
   z-index: 1000;
+  width: 100vw;
+  max-width: 100vw;
+  left: 0;
 }
 
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100vw;
+  max-width: 100vw;
+  margin: 0;
   padding: 0 1rem;
   display: flex;
   justify-content: space-between;
