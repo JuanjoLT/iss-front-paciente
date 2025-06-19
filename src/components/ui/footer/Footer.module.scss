@@ -1,0 +1,15 @@
+.footer {
+  background-color: #fff;
+  color: #065e06;
+  text-align: center;
+  margin-top: auto; // Opcional: asegura que el footer quede abajo
+  margin: auto 0;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}

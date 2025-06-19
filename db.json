@@ -1,39 +1,39 @@
 {
   "registros": [
     {
-      "id": "dcd6",
-      "fecha": "17/6/2025, 6:27:03 p.m.",
+      "fecha": "6/18/2025, 6:36:20 PM",
       "sintomas": {
-        "tos": "Leve",
-        "fiebre": "Leve",
-        "temperatura": 40,
-        "frecuenciaCardiaca": 70,
-        "saturacionOxigeno": 85,
-        "dolorCabeza": "Leve",
-        "dificultadRespirar": "Leve",
-        "fatiga": "Leve",
-        "escalofrios": "Leve",
-        "congestionNasal": "Leve",
-        "dolorGarganta": "Leve",
-        "perdidaOlfato": "Leve",
-        "perdidaGusto": "Leve",
-        "nauseas": "Leve",
-        "vomitos": "Leve",
-        "diarrea": "Leve",
-        "dolorPecho": "Leve",
-        "sudoracionExcesiva": "Leve",
-        "mareos": "Leve",
-        "palpitaciones": "Leve",
-        "dolorArticular": "Leve",
-        "insomnio": "Leve"
-      }
+        "tos": "Moderado",
+        "diarrea": "Leve"
+      },
+      "id": 1
     },
     {
-      "id": "0f4c",
-      "fecha": "17/6/2025, 7:00:30 p.m.",
+      "fecha": "6/18/2025, 6:36:39 PM",
       "sintomas": {
-        "temperatura": 4
-      }
+        "tos": "Grave"
+      },
+      "id": 2
+    },
+    {
+      "fecha": "6/18/2025, 6:36:40 PM",
+      "sintomas": {},
+      "id": 3
+    },
+    {
+      "fecha": "6/18/2025, 6:36:40 PM",
+      "sintomas": {},
+      "id": 4
+    },
+    {
+      "fecha": "6/18/2025, 6:36:41 PM",
+      "sintomas": {},
+      "id": 5
+    },
+    {
+      "fecha": "6/18/2025, 6:36:41 PM",
+      "sintomas": {},
+      "id": 6
     }
   ],
   "usuarios": [
