@@ -5,12 +5,14 @@
   align-items: center;
   width: 85vw;
   height: 85vh;
-  margin: auto;
   /* Card styles */
   background-color: #ffffff;
   border-radius: 1rem;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   padding: 2rem;
+  max-width: 80vw;
+  margin: 1rem auto;
+
   box-sizing: border-box;
 }
 
