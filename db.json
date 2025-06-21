@@ -1,39 +1,29 @@
 {
   "registros": [
     {
-      "fecha": "6/18/2025, 6:36:20 PM",
+      "fecha": "6/20/2025, 8:30:49 PM",
       "sintomas": {
-        "tos": "Moderado",
-        "diarrea": "Leve"
+        "tos": "Leve",
+        "fiebre": "Leve"
       },
       "id": 1
     },
     {
-      "fecha": "6/18/2025, 6:36:39 PM",
+      "fecha": "6/20/2025, 8:59:55 PM",
       "sintomas": {
-        "tos": "Grave"
+        "fiebre": "Grave"
       },
       "id": 2
     },
     {
-      "fecha": "6/18/2025, 6:36:40 PM",
-      "sintomas": {},
+      "fecha": "6/20/2025, 9:04:06 PM",
+      "sintomas": {
+        "nauseas": "Grave",
+        "sudoracionExcesiva": "Grave",
+        "mareos": "Grave",
+        "palpitaciones": "Grave"
+      },
       "id": 3
-    },
-    {
-      "fecha": "6/18/2025, 6:36:40 PM",
-      "sintomas": {},
-      "id": 4
-    },
-    {
-      "fecha": "6/18/2025, 6:36:41 PM",
-      "sintomas": {},
-      "id": 5
-    },
-    {
-      "fecha": "6/18/2025, 6:36:41 PM",
-      "sintomas": {},
-      "id": 6
     }
   ],
   "usuarios": [

@@ -1,0 +1,171 @@
+/* Login.module.scss */
+
+.fullscreenWrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 1s ease-in-out;
+  /* Fondo degradado verde */
+  background: linear-gradient(135deg, #56ab2f 0%, #18380a 100%);
+}
+
+.loginContainer {
+  width: 100%;
+  max-width: 420px;
+  padding: 32px;
+  background: #ffffffee;
+  border-radius: 20px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  color: #2c3e50;
+  backdrop-filter: blur(10px);
+  animation: slideUp 0.8s ease-out;
+}
+
+.logo {
+  width: 140px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.titlePrimary {
+  font-size: 2rem;
+  margin-bottom: 8px;
+  color: #1a770e;
+  font-weight: 700;
+}
+
+.titleSecondary {
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+  color: #1fd74d;
+}
+
+.description {
+  font-size: 0.95rem;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.formGroup {
+  margin-bottom: 20px;
+  text-align: left;
+
+  label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #333;
+  }
+
+  input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #cfbfbf;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: #b2b7ba;
+
+    &:focus {
+      border-color: #0077c2;
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(0, 119, 194, 0.2);
+    }
+  }
+}
+
+.buttonPrimary {
+  width: 100%;
+  padding: 12px;
+  background: #4bc72f;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: #077807;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.error {
+  color: #d32f2f;
+  font-weight: bold;
+  margin-top: 12px;
+  animation: shake 0.5s ease-in-out;
+}
+
+.registroOpcion {
+  margin-top: 24px;
+
+  .btnRegistro {
+    background: transparent;
+    border: 2px solid #009320;
+    color: #04970b;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: #077807;
+      color: #fff;
+      transform: translateY(-2px);
+    }
+  }
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-5px);
+  }
+  40% {
+    transform: translateX(5px);
+  }
+  60% {
+    transform: translateX(-5px);
+  }
+  80% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

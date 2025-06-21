@@ -1,0 +1,14 @@
+.selectAllBtn {
+  /* Bootstrap: */
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  color: #198754;
+  background-color: transparent;
+  border: 1px solid #198754;
+  cursor: pointer;
+}
+.selectAllBtn:hover {
+  background-color: #198754;
+  color: #fff;
+}

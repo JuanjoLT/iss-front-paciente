@@ -1,74 +1,40 @@
+<!-- src/components/ui/header/Header.vue -->
 <template>
-  <header class="header">
-    <div class="container">
-      <h1 class="logo">Monitoreo de Pacientes</h1>
-      <nav class="nav" role="navigation" aria-label="Menú principal">
-        <ul>
-          <li><a href="/dashboard">INICIO</a></li>
-          <li><a href="#">PERFIL</a></li>
-          <li><a href="#">HISTORIAL</a></li>
-          <li><a href="/">SALIR</a></li>
-        </ul>
+  <header :class="$style.headerContainer">
+    <div :class="$style.innerWrapper">
+      <!-- Breadcrumb -->
+      <nav :class="$style.breadcrumb" aria-label="breadcrumb">
+        <RouterLink to="/dashboard" :class="$style.breadcrumbLink">
+          Monitoreo
+        </RouterLink>
+        <span :class="$style.breadcrumbSeparator">/</span>
+        <span :class="$style.breadcrumbCurrent">{{ currentLabel }}</span>
       </nav>
 
-      <!-- <button @click="mostrarPerfil = !mostrarPerfil">
-        {{ mostrarPerfil ? 'Ocultar Perfil' : 'Ver Perfil' }}
-      </button> -->
+      <!-- Botón de Pánico -->
+      <BotonPanico />
     </div>
   </header>
 </template>
 
-<style scoped>
-:root {
-  --color-fondo-header: #50a750;
-  --color-texto: white;
-  --color-hover: #d94f4f; /* rojo suave */
-}
+<script setup lang="ts">
+import { computed } from "vue";
+import { useRoute, RouterLink } from "vue-router";
+import BotonPanico from "@/components/ui/botones/boton-panico/BotonPanico.vue";
 
-.header {
-  width: auto;
-  background-color: #065e06;
-  color: rgb(234, 223, 223);
-  text-align: center;
-  margin-top: auto; /* Opcional: asegura que el footer quede abajo */
-}
+const route = useRoute();
 
+// Mapea rutas a etiquetas legibles
+const labelMap: Record<string, string> = {
+  "/dashboard": "Monitoreo",
+  "/historial": "Historial",
+  "/perfil-paciente": "Perfil Paciente",
+  // agrega más si tienes otras rutas…
+};
 
-.container {
-  margin: 0 auto;
-  padding: 0 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  font-size: 1.3rem;
-  font-weight: bold;
-  letter-spacing: 0.5px;
-}
-
-.nav ul {
-  list-style: none;
-  display: flex;
-  gap: 2rem;
-  margin: 0;
-  padding: 0;
-}
-
-.nav a {
-  color: #e1eee2; /* rojo oscuro para links */
-  text-decoration: none;
-  font-weight: 800;
-  transition: color 0.3s ease;
-}
-
-.nav a:hover,
-.nav a:focus {
-  color: #35e828; /* blanco suave */
-  outline: none;
-  text-shadow: 0 0 2px rgba(150, 115, 115, 0.3);
-  transform: scale(1.35);
-}
-
-</style>
+const currentLabel = computed(() => {
+  // Si la ruta tiene params, podrías mostrar un ID o texto distinto:
+  return labelMap[route.path] || "Página";
+});
+</script>
+<style module src="./Header.module.scss" lang="scss" />

@@ -1,0 +1,140 @@
+/* src/views/registro/Register.module.scss */
+.registerContainer {
+  max-width: 420px;
+  margin: 40px auto;
+  padding: 24px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", sans-serif;
+  text-align: center;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.title {
+  margin-bottom: 0.5rem;
+  color: #065e06;
+  font-weight: bold;
+}
+
+.description {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.formGroup {
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #065e06;
+}
+
+.input,
+.select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.input:focus,
+.select:focus {
+  border-color: #007722;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 119, 34, 0.2);
+}
+
+.buttonPrimary {
+  width: 100%;
+  padding: 10px;
+  background: #007722;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.buttonPrimary:hover {
+  background: #005f1a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 119, 34, 0.2);
+}
+
+.error {
+  color: #d32f2f;
+  margin-top: 8px;
+  font-weight: bold;
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-5px);
+  }
+  40% {
+    transform: translateX(5px);
+  }
+  60% {
+    transform: translateX(-5px);
+  }
+  80% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.volverLogin {
+  margin-top: 20px;
+}
+
+.btnVolver {
+  background: transparent;
+  border: 1px solid #007722;
+  color: #007722;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btnVolver:hover {
+  background: #007722;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.backgroundGradient {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #56ab2f 0%, #18380a 100%);
+  overflow-x: hidden;
+}

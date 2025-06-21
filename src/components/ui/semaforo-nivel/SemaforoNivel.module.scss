@@ -1,0 +1,50 @@
+/* src/components/ui/semaforo-nivel/SemaforoNivel.module.scss */
+.semaforo {
+  max-width: 400px;
+  margin:  auto;
+  text-align: center;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background-color: #e8f5e9;
+  border: 1px solid #a5d6a7;
+  box-shadow: 0 2px 6px rgba(0, 128, 0, 0.1);
+}
+
+.header {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.icono {
+  font-size: 1.5rem;
+}
+
+.circulo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin: 1rem auto;
+  border: 3px solid #ccc;
+}
+
+.verde {
+  background-color: #81c784;
+}
+
+.amarillo {
+  background-color: #fff176;
+}
+
+.rojo {
+  background-color: #e57373;
+}
+
+.mensaje {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #2e7d32;
+}

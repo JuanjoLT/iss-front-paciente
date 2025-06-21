@@ -1,0 +1,45 @@
+/* src/components/ui/card/mi-perfil/CardMiPerfil.module.scss */
+.card {
+  background-color: #e8f5e9;
+  border-radius: 10px;
+  border-left: 5px solid #065e06;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  animation: fadeIn 0.5s ease-in-out;
+  padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.header {
+  margin: 0 0 1rem;
+  color: #065e06;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.field {
+  margin: 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.label {
+  font-weight: 500;
+  color: #065e06;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

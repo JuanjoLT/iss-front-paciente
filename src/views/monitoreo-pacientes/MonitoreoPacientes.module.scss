@@ -1,0 +1,49 @@
+/* src/views/monitoreo-pacientes/MonitoreoPacientes.module.scss */
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 85vw;
+  height: 85vh;
+  margin: auto;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.cardContainer {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+
+@media (max-width: 900px) {
+  .wrapper {
+    width: 98vw;
+    height: auto;
+    padding: 1rem;
+    flex-direction: column;
+  }
+  .cardContainer {
+    height: auto;
+    min-width: 0;
+    padding: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .wrapper {
+    width: 100vw;
+    min-height: 100vh;
+    padding: 0.5rem;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .cardContainer {
+    width: 100%;
+    padding: 0;
+    box-shadow: none;
+  }
+}
