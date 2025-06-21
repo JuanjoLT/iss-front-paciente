@@ -31,13 +31,13 @@
       >
         <!-- Columna Síntomas: listamos clave:valor -->
         <template #cell(sintomas)="row">
-          <ul :class="style.sintomaLista">
+          <ul :class="$style.sintomaLista">
             <li
               v-for="(valor, nombre) in row.item.sintomas"
               :key="nombre"
-              :class="style.sintomaItem"
+              :class="$style.sintomaItem"
             >
-              <span :class="style.sintomaNombre">{{
+              <span :class="$style.sintomaNombre">{{
                 formatearNombre(nombre)
               }}</span
               >: {{ valor }}
@@ -58,8 +58,8 @@
 import { ref, onMounted, computed } from "vue";
 import axios from "axios";
 import { BTable, BButton } from "bootstrap-vue-3";
-import SemaforoAlerta from "@/components/ui/semaforo-nivel/SemaforoNivel.vue";
-import style from "./HistorialSintomas.module.scss";
+import SemaforoAlerta from "@ui/semaforo-nivel/SemaforoNivel.vue";
+
 
 interface RegistroSintomas {
   id: number;

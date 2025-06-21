@@ -7,6 +7,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'),  // Asegúrate de que esto apunte correctamente a la carpeta src
+      '@ui': path.resolve(__dirname, 'src/components/ui'),
     },
   },
 })
