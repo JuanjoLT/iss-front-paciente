@@ -1,29 +1,29 @@
 {
   "registros": [
     {
-      "fecha": "6/20/2025, 8:30:49 PM",
+      "fecha": "23/6/2025, 8:18:12 a.m.",
       "sintomas": {
         "tos": "Leve",
-        "fiebre": "Leve"
+        "fiebre": "Leve",
+        "dolorCabeza": "Leve",
+        "dificultadRespirar": "Leve",
+        "fatiga": "Leve",
+        "escalofrios": "Leve",
+        "congestionNasal": "Leve",
+        "dolorGarganta": "Leve",
+        "perdidaOlfato": "Leve",
+        "perdidaGusto": "Leve",
+        "nauseas": "Leve",
+        "vomitos": "Leve",
+        "diarrea": "Leve",
+        "dolorPecho": "Leve",
+        "sudoracionExcesiva": "Leve",
+        "mareos": "Leve",
+        "palpitaciones": "Leve",
+        "dolorArticular": "Leve",
+        "insomnio": "Leve"
       },
       "id": 1
-    },
-    {
-      "fecha": "6/20/2025, 8:59:55 PM",
-      "sintomas": {
-        "fiebre": "Grave"
-      },
-      "id": 2
-    },
-    {
-      "fecha": "6/20/2025, 9:04:06 PM",
-      "sintomas": {
-        "nauseas": "Grave",
-        "sudoracionExcesiva": "Grave",
-        "mareos": "Grave",
-        "palpitaciones": "Grave"
-      },
-      "id": 3
     }
   ],
   "usuarios": [
@@ -81,6 +81,17 @@
       "telefono": "+56981599872",
       "rol": "",
       "id": "cXaSCIT"
+    },
+    {
+      "rut": "78.945.612-3",
+      "nombre": "Uoh",
+      "email": "Aaa@aa.com",
+      "password": "123456789",
+      "genero": "masculino",
+      "fechaNacimiento": "2024-01-11",
+      "telefono": "+569 12345678",
+      "rol": "",
+      "id": "Qv-ngth"
     }
   ]
 }
