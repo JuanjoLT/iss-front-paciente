@@ -40,22 +40,6 @@
     <!-- Acciones en el pie -->
     <div class="mt-auto">
       <ul class="nav flex-column">
-        <li class="nav-item mb-1">
-          <a
-            href="javascript:void(0)"
-            class="nav-link btn btn-light w-100 text-start d-flex align-items-center"
-            @click="navigate('/profile')"
-          >
-            <HugeiconsIcon
-              :icon="AccountSetting01Icon"
-              class="me-2"
-              :size="25"
-              color="#065e06"
-              :stroke-width="1.5"
-            />
-            Mi perfil
-          </a>
-        </li>
         <li class="nav-item">
           <a
             href="javascript:void(0)"

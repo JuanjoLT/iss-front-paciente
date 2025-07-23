@@ -91,6 +91,7 @@ async function handleLogin() {
       const usuario = response.data[0];
       localStorage.setItem("usuarioLogueado", JSON.stringify(usuario));
       router.push("/dashboard"); // o '/panel' si así está en tus rutas
+      localStorage.setItem("usuarioId", usuario.id);
     } else {
       errorMessage.value = "Credenciales incorrectas";
     }

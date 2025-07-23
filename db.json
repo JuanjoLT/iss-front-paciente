@@ -1,10 +1,9 @@
 {
   "registros": [
     {
-      "fecha": "23/6/2025, 8:18:12 a.m.",
+      "fecha": "22/7/2025, 9:51:08 p.m.",
       "sintomas": {
         "tos": "Leve",
-        "fiebre": "Leve",
         "dolorCabeza": "Leve",
         "dificultadRespirar": "Leve",
         "fatiga": "Leve",
@@ -20,10 +19,18 @@
         "sudoracionExcesiva": "Leve",
         "mareos": "Leve",
         "palpitaciones": "Leve",
-        "dolorArticular": "Leve",
-        "insomnio": "Leve"
+        "dolorArticular": "Grave",
+        "insomnio": "Grave"
       },
       "id": 1
+    },
+    {
+      "fecha": "22/7/2025, 9:52:44 p.m.",
+      "sintomas": {
+        "tos": "Grave",
+        "fiebre": "Grave"
+      },
+      "id": 2
     }
   ],
   "usuarios": [
@@ -92,6 +99,28 @@
       "telefono": "+569 12345678",
       "rol": "",
       "id": "Qv-ngth"
+    },
+    {
+      "rut": "22.222.222-2",
+      "nombre": "Hernan",
+      "email": "a@qq.com",
+      "password": "123456789",
+      "genero": "masculino",
+      "fechaNacimiento": "2000-05-22",
+      "telefono": "+56912345678",
+      "rol": "",
+      "id": "G51nl_L"
+    },
+    {
+      "rut": "20.852.806-8",
+      "nombre": "Hernan Zamorano",
+      "email": "hernan.zamorano@pregrado.uoh.cl",
+      "password": "123456789",
+      "genero": "masculino",
+      "fechaNacimiento": "2001-09-18",
+      "telefono": "+56966408051",
+      "rol": "",
+      "id": "D6YqUyG"
     }
   ]
 }

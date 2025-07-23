@@ -7,14 +7,14 @@
         No has registrado tus síntomas hoy. Recuerda hacerlo diariamente.
       </div>
 
-      <b-button
+      <!-- <b-button
         v-if="historial.length"
         variant="success"
         class="d-block mx-auto mb-3"
         @click="borrarHistorial"
       >
         Borrar historial
-      </b-button>
+      </b-button> -->
 
       <div v-if="!historial.length" class="text-center text-muted">
         No tienes registros anteriores.
@@ -77,12 +77,30 @@ const formatearNombre = (str: string | number) => {
 
 onMounted(async () => {
   const resp = await axios.get("http://localhost:3001/registros");
-  historial.value = resp.data;
-  const hoy = new Date().toLocaleDateString();
-  registroHoy.value = historial.value.some(
-    (r) => new Date(r.fecha).toLocaleDateString() === hoy
-  );
+
+  // Ordenamos por fecha (más reciente primero)
+  historial.value = resp.data.sort((a: RegistroSintomas, b: RegistroSintomas) => {
+    const fechaA = new Date(a.fecha);
+    const fechaB = new Date(b.fecha);
+    return fechaA.getTime() - fechaB.getTime(); // ascendente
+  });
+
+  const hoy = new Date();
+  const diaHoy = hoy.getDate();
+  const mesHoy = hoy.getMonth() + 1;
+  const anioHoy = hoy.getFullYear();
+
+  registroHoy.value = historial.value.some((r) => {
+    const partesFecha = r.fecha.split(",")[0].split("/");
+    const dia = parseInt(partesFecha[0], 10);
+    const mes = parseInt(partesFecha[1], 10);
+    const anio = parseInt(partesFecha[2], 10);
+
+    return dia === diaHoy && mes === mesHoy && anio === anioHoy;
+  });
 });
+
+
 
 const borrarHistorial = async () => {
   for (const r of historial.value) {
