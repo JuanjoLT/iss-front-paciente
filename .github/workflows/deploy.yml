@@ -37,8 +37,8 @@ jobs:
           rm -f package-lock.json
           npm install --legacy-peer-deps
 
-      - name: Build (without type checking)
-        run: npm run build-only
+      - name: Build (with type checking)
+        run: npm run build
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
